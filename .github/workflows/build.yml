@@ -307,3 +307,8 @@ jobs:
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk MonSite.apk
           gh release create "apk-${{ github.run_number }}" MonSite.apk --title "MonSite APK ${{ github.run_number }}" --notes "APK pret a installer sur Android"
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: app/build/outputs/apk/debug/*.apk
