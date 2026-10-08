@@ -207,7 +207,7 @@ jobs:
                           webView.visibility = View.GONE
                           root.addView(view, FrameLayout.LayoutParams(
                               ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-                          setImmersive(true)
+                          setImmersiveMode(true)
                       }
 
                       override fun onHideCustomView() {
@@ -216,7 +216,7 @@ jobs:
                           customViewCallback?.onCustomViewHidden()
                           customViewCallback = null
                           webView.visibility = View.VISIBLE
-                          setImmersive(false)
+                          setImmersiveMode(false)
                       }
                   }
 
@@ -243,7 +243,7 @@ jobs:
                   }
               }
 
-              private fun setImmersive(enable: Boolean) {
+              private fun setImmersiveMode(enable: Boolean) {
                   val controller = WindowInsetsControllerCompat(window, window.decorView)
                   WindowCompat.setDecorFitsSystemWindows(window, !enable)
                   if (enable) {
